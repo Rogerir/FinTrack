@@ -1,20 +1,20 @@
 import dao.TransacaoDAO;
 import model.Transacao;
-import java.util.List;
+import model.TipoTransacao;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Buscando dados no banco de dados...");
-
         TransacaoDAO dao = new TransacaoDAO();
 
-        // Chama o método que lê o banco
-        List<Transacao> transacoesSalvas = dao.listar();
+        System.out.println("--- Iniciando Teste de Update ---");
+        Transacao tModificada = new Transacao("Salário Estágio SEPOG - Com Aumento", 1600.00, TipoTransacao.RECEITA, LocalDate.now());
+        tModificada.setId(1);
+        dao.editar(tModificada);
 
-        System.out.println("\n--- TRANSAÇÕES ENCONTRADAS ---");
-        for (Transacao t : transacoesSalvas) {
-            System.out.println(t); // Vai usar o toString() que corrigimos na classe
-        }
-        System.out.println("---------------------------------");
+        System.out.println("\n--- Iniciando Teste de Delete ---");
+        dao.deletar(1);
+
+        System.out.println("\nTestes concluídos com sucesso!");
     }
 }
