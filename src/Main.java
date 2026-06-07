@@ -1,24 +1,20 @@
+import dao.TransacaoDAO;
+import model.Transacao;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Iniciando o teste de conexão...");
+        System.out.println("Buscando dados no banco de dados...");
 
-        java.sql.Connection conn = dao.Conexao.getConexao();
+        TransacaoDAO dao = new TransacaoDAO();
 
-        if (conn != null) {
-            System.out.println("\n=========================================");
-            System.out.println(" SUCESSO! O Java conectou no fintrack_db! ");
-            System.out.println("=========================================");
+        // Chama o método que lê o banco
+        List<Transacao> transacoesSalvas = dao.listar();
 
-            try {
-                conn.close();
-                System.out.println("Conexão de teste fechada com segurança.");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("\n=========================================");
-            System.out.println(" ERRO: A conexão retornou nula.          ");
-            System.out.println("=========================================");
+        System.out.println("\n--- TRANSAÇÕES ENCONTRADAS ---");
+        for (Transacao t : transacoesSalvas) {
+            System.out.println(t); // Vai usar o toString() que corrigimos na classe
         }
+        System.out.println("---------------------------------");
     }
 }

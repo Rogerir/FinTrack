@@ -34,7 +34,7 @@ public class Transacao {
         return id;
     }
 
-    public void serId(Integer id){
+    public void setId(Integer id){
         this.id = id;
     }
 
@@ -49,6 +49,11 @@ public class Transacao {
     public double getValor(){
         return valor;
     }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
     public TipoTransacao getTipo() {
         return tipo;
     }
