@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TransacaoController">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="Gestão de Transações - FinTrack">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="20.0" layoutY="65.0" text="Descrição:" />
+        <TextField fx:id="txtDescricao" layoutX="85.0" layoutY="61.0" prefWidth="220.0" />
+
+        <Label layoutX="320.0" layoutY="65.0" text="Valor:" />
+        <TextField fx:id="txtValor" layoutX="360.0" layoutY="61.0" prefWidth="100.0" />
+
+        <Label layoutX="20.0" layoutY="105.0" text="Tipo:" />
+        <ComboBox fx:id="cbTipo" layoutX="85.0" layoutY="101.0" prefWidth="150.0" />
+
+        <Label layoutX="250.0" layoutY="105.0" text="Data:" />
+        <DatePicker fx:id="dpData" layoutX="290.0" layoutY="101.0" prefWidth="130.0" />
+
+        <Button layoutX="480.0" layoutY="61.0" mnemonicParsing="false" onAction="#salvarTransacao" prefWidth="90.0" text="Salvar" />
+        <Button layoutX="585.0" layoutY="61.0" mnemonicParsing="false" onAction="#limparCampos" prefWidth="90.0" text="Limpar" />
+        <Button layoutX="480.0" layoutY="101.0" mnemonicParsing="false" onAction="#deletarTransacao" prefWidth="195.0" text="Excluir Selecionada" textFill="RED" />
+
+        <TableView fx:id="tabelaTransacoes" layoutX="20.0" layoutY="150.0" prefHeight="330.0" prefWidth="660.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="colDescricao" prefWidth="250.0" text="Descrição" />
+                <TableColumn fx:id="colValor" prefWidth="120.0" text="Valor" />
+                <TableColumn fx:id="colTipo" prefWidth="120.0" text="Tipo" />
+                <TableColumn fx:id="colData" prefWidth="110.0" text="Data" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
